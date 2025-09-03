@@ -8,6 +8,16 @@ class MoviesController < ApplicationController
   def show
   end
 
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+    @movie = Movie.new(movie_params)
+    @movie.save
+    redirect_to @movie
+  end
+
   def edit
   end
 
