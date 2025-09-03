@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :find_movie, only: [ :show, :edit, :update ]
+  before_action :find_movie, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @movies = Movie.all
@@ -24,6 +24,11 @@ class MoviesController < ApplicationController
   def update
     @movie.update(movie_params)
     redirect_to @movie
+  end
+
+  def destroy
+    @movie.destroy
+    redirect_to movies_path, status: :see_other
   end
 
   private
