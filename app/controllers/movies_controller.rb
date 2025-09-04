@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :find_movie, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_movie, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @movies = Movie.released
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
 
   private
 
-  def find_movie
+  def set_movie
     @movie = Movie.find(params[:id])
   end
 
