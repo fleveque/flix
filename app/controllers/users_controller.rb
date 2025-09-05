@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
     @user.destroy
     redirect_to movies_url, status: :see_other,
       alert: "Account succesfully deleted!"
